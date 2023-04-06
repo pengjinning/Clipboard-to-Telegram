@@ -120,19 +120,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         timer = nil
     }
 
+    func updateSettings(botToken: String, chatID: String) {
+        self.botToken = botToken
+        self.chatID = chatID
+    }
     
-
-        func updateSettings(botToken: String, chatID: String) {
-            self.botToken = botToken
-            self.chatID = chatID
-        }
     func applicationDidFinishLaunching(_ notification: Notification) {
         print("Application did finish launching")
         
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
-        }
+        
+    }
+    
     func sendTextToTelegramBot(text: String) {
         let monospaceText = "```\n\(text)\n```"
         let urlString = "https://api.telegram.org/bot\(botToken)/sendMessage?chat_id=\(chatID)&text=\(monospaceText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&parse_mode=MarkdownV2"
@@ -150,8 +151,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         self.sendFileToTelegramBot(file: imageData, fileName: "image.png", mimeType: "image/png")
         print("Sending image message to Telegram bot.")
     }
-
-
     
     func sendFileToTelegramBot(file: Data, fileName: String, mimeType: String) {
         let urlString = "https://api.telegram.org/bot\(botToken)/sendDocument"
@@ -192,9 +191,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
         task.resume()
     }
-
     
-    }
+}
 
 
 
@@ -210,9 +208,6 @@ extension URL {
         return "application/octet-stream"
     }
 }
-
-
-
 
 extension NSImage {
     func pngData() -> Data? {
