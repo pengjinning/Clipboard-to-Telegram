@@ -19,18 +19,17 @@ struct ClipboardToTelegramApp: App {
             WindowGroup {
                 ContentView()
                     .environmentObject(appDelegate)
-
             }
         }
     
 //    let persistenceController = PersistenceController.shared
-//
 //    var body: some Scene {
 //        WindowGroup {
 //            ContentView()
 //                .environment(\.managedObjectContext, persistenceController.container.viewContext)
 //        }
 //    }
+    
 }
 
 
@@ -58,11 +57,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
     }
 
-        override init() {
-            botToken = UserDefaults.standard.string(forKey: "botToken") ?? ""
-            chatID = UserDefaults.standard.string(forKey: "chatID") ?? ""
-            super.init()
-        }
+    override init() {
+        botToken = UserDefaults.standard.string(forKey: "botToken") ?? ""
+        chatID = UserDefaults.standard.string(forKey: "chatID") ?? ""
+        super.init()
+    }
 
     func startWatchingClipboard() {
         if timer != nil {
@@ -191,11 +190,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ObservableObject {
         }
         task.resume()
     }
-    
 }
-
-
-
 
 extension URL {
     func mimeType() -> String {
