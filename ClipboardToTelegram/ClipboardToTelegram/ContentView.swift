@@ -1,4 +1,12 @@
+//
+//  ContentView.swift
+//  ClipboardToTelegram
+//
+//  Created by 宁金鹏 on 2023/4/6.
+//
+
 import SwiftUI
+//import CoreData
 
 struct ContentView: View {
     @EnvironmentObject var appDelegate: AppDelegate
@@ -64,4 +72,3 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environmentObject(AppDelegate())
     }
 }
-

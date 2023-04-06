@@ -2,8 +2,9 @@
 //  ClipboardToTelegramApp.swift
 //  ClipboardToTelegram
 //
-//  Created by Apple on 2023/3/31.
+//  Created by 宁金鹏 on 2023/4/6.
 //
+
 import AppKit
 import SwiftUI
 import CoreImage
@@ -11,17 +12,25 @@ import Cocoa
 import UniformTypeIdentifiers
 
 @main
-struct MyApp: App {
+struct ClipboardToTelegramApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-//    @StateObject var appDelegate = AppDelegate()
+    //    @StateObject var appDelegate = AppDelegate()
+        var body: some Scene {
+            WindowGroup {
+                ContentView()
+                    .environmentObject(appDelegate)
 
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-                .environmentObject(appDelegate)
-
+            }
         }
-    }
+    
+//    let persistenceController = PersistenceController.shared
+//
+//    var body: some Scene {
+//        WindowGroup {
+//            ContentView()
+//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+//        }
+//    }
 }
 
 

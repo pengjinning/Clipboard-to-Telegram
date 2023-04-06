@@ -1,3 +1,10 @@
+//
+//  SettingsView.swift
+//  ClipboardToTelegram
+//
+//  Created by 宁金鹏 on 2023/4/6.
+//
+
 import SwiftUI
 
 struct SettingsView: View {
@@ -46,3 +53,4 @@ struct SettingsView_Previews: PreviewProvider {
         SettingsView()
     }
 }
+
